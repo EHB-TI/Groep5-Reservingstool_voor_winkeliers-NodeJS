@@ -207,7 +207,11 @@ function convertToWhere(whereObject){
 
 function doUpdate(res, tableName, setObj, whereObj){
     if(Object.keys(getSettersForUpdate(setObj)).length == 0){
-        res.send({error: `Er moet minsens 1 parameter zijn voor om data te veranderen! Je kan kizen tussen: ${Object.keys(setObj)}`});
+        let possibleObj = {};
+        for(key of Object.keys(setObj)){
+            possibleObj[`set_${key}`] = setObj[key];
+        }
+        res.send({error: `Er moet minsens 1 parameter zijn voor om data te veranderen! Je kan kizen tussen: ${Object.keys(possibleObj)}`});
     }
     else{
         let whereConverted = convertToWhere(whereObj);
