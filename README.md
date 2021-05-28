@@ -1,6 +1,6 @@
 # Groep5-Reservingstool_voor_winkeliers-NodeJS
 
-De bedoeling van dit project is om ervoor te zorgen dat de klanten reservaties kunnen maken bij de winkels bij de winkels naar hun keuze. Ook zullen ze zich dus kunnen registreren/inloggen alsook hun profiel bekijken en bewerken. Ze zullen ook de mogelijkheid hebben om winkels op te zoeken en om er meer informatie van te vinden en ten laatste zullen ze ook de mogelijkheid hebben om tickets aan te maken.
+De bedoeling van dit project is om ervoor te zorgen dat de klanten reservaties kunnen maken bij de winkels naar hun keuze. Ook zullen ze zich dus kunnen registreren/inloggen alsook hun profiel bekijken en bewerken. Ze zullen ook de mogelijkheid hebben om winkels op te zoeken en om er meer informatie van te vinden en ten laatste zullen ze ook de mogelijkheid hebben om tickets aan te maken.
 
 
 ### Setup:
