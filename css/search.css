@@ -8,6 +8,7 @@ afbeeldingen: https://www.w3schools.com/css/css3_images.asp
 
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
 
+/* Styling navigatie */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -62,6 +63,7 @@ h1 {
     text-decoration: none;
    
 }
+/* Styling imput fields */
 input {
   
   width: calc(100% - 40px);
@@ -96,6 +98,7 @@ select {
     width: 100%;
     max-width: 800px;
     margin: auto;
+    margin-top: 135px;
     
 }
 .winkel1aflb {
@@ -137,6 +140,9 @@ p{
     text-decoration: none;
     text-align: center;
 }
+
+/* Styling Footer */
+
 footer{
     position: absolute;
     bottom: auto;
@@ -187,4 +193,33 @@ footer{
 }
 html{
     background-color: #ecf0f1;
+}
+header{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    background-color: #505e63;
+    margin: 0;
+    right: 0;
+}
+.linkedin {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0 ;
+}
+.linkedin li{
+    margin: 0 10px;
+}
+.linkedin a{
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.4s ease;
+}
+.linkedin a {
+    font-size: 1.1rem;
+}
+.linkedin a:hover {
+    color: rgba(0,136,169,1);
 }
