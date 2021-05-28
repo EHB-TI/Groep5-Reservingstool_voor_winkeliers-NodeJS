@@ -7,46 +7,41 @@ Email: zakaria.lamsakam@student.ehb.be
 'use strict'
 
 window.onload = () => {
-    document.getElementById('button').addEventListener('click',createKlant);
-    document.getElementById("exampleInputPassword1").maxLength = "50";
+
+    document.getElementById('button').addEventListener('click', checkval);
     document.getElementById("emailField").maxLength = "150";
+    document.getElementById("password1").maxLength = "50";
+    document.getElementById("password2").maxLength = "50";
 
 
-    function gegevens(email,password){
-        this.email = email;
-        this.password = password;
+
+
+    function checkval() {
+        var email = document.getElementById('emailField').value;
+        var password1 = document.getElementById('password1').value;
+        var password2 = document.getElementById('password2').value;
+
+        if (email == "") {
+            alert("De email moet ingevuld worden")
+        } else if (email.length > 150) {
+            alert("De email mag maximum 2 letters bevatten")
+        }
+
+        if (password1 == "") {
+            alert("Het wachtwoord moet ingevuld worden")
+        } else if(password2 == ""){
+            alert("Het wachtwoord moet bevestigt worden ")
+        }
+        else if (password1 != password2) {
+            alert("Het wachtwoord is niet gelijk")
+        } else if (password1.length > 50 || password2.length > 50) {
+           alert("Het wachtwoord is niet gelijk")
+        } else {
+            return true;
+        }
+
 
     }
 
-    function createKlant(){
-        let email = document.getElementById('email')
-        let password = document.getElementById('exampleInputPassword1');
 
-        let Gegevens = new gegevens(email,password);
-    }
-
-   
-}   
-
-
-
-  /*
-    var emailField = document.getElementById("emailField");
-    var button = document.getElementById("button");
-    var response = document.getElementById("response");
-
-    button.addEventListener("click", function () {
-    var email = emailField.value;
-    if (validateEmail(email)) {
-    response.innerHTML = "Het is valide email";
-    } else {
-    response.innerHTML = "Het is geen valide email";
-    }
-    });
-
-    function validateEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());}
-    */ 
-  
- 
+}
