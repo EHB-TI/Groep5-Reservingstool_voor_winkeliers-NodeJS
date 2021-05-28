@@ -1,0 +1,190 @@
+/* 
+Author: ZOETARDT Craig
+email: craig.zoetardt@student.ehb.be
+nav bar: https://www.youtube.com/watch?v=PwWHL3RyQgk
+search balk: https://www.w3schools.com/css/css_form.asp
+afbeeldingen: https://www.w3schools.com/css/css3_images.asp
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+    margin-right: 20px ;
+   /* background-color: #24252A;*/
+
+}
+li, a, button {
+    font-family: "Titillium+Web", sans-serif ;
+    font-weight: 500;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+.logo {
+    cursor: pointer;
+}
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+.nav_links li a{
+    transition: all 0.3s ease 0s;
+}
+.nav_links li a:hover{
+    color: #0088a9;
+}
+button{
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+button:hover {
+    background-color: rgba(0,136,169,0.8);
+}
+h1 {
+    font-family: "Titillium+Web", sans-serif ;
+    font-weight: 500;
+    font-size: 50px;
+    color: black;
+    text-decoration: none;
+   
+}
+input {
+  
+  width: calc(100% - 40px);
+  padding: 16px 20px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #b8b6b68f;
+  background-image: url('search-icon-png-21.png');
+  background-position: 5px 5px;
+  background-repeat: no-repeat;
+  padding-left: 42px;
+  margin: 20px;
+}
+select {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #b8b6b68f;
+    font-family: "Titillium+Web", sans-serif ;
+    font-weight: 500;
+    font-size: 16px;
+    color: #505e63;
+    text-decoration: none;
+    margin: 0px;
+    
+  }
+.main-content {
+    height: 100%;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    
+}
+.winkel1aflb {
+    max-width: 760px;
+  height: auto;
+}
+.winkel2aflb{
+    max-width: 760px;
+    height: auto;
+}
+.winkel1{
+    height: 100%;
+    width: 100%;
+    max-width: 800px;
+    margin: 0px;
+    margin-top: 50px ;
+}
+.winkel2{
+    height: 100%;
+    width: 100%;
+    max-width: 800px;
+    margin: 0px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+h2 {
+    font-family: "Titillium+Web", sans-serif ;
+    font-weight: 500;
+    font-size: 35px;
+    color: black;
+    text-decoration: none;
+    margin-top: 25px;
+}
+p{
+    font-family: "Titillium+Web", sans-serif ;
+    font-weight: 500;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+}
+footer{
+    position: absolute;
+    bottom: auto;
+    right: 0;
+    background-color: #111;
+    height: auto;
+    width: 100vw;
+    font-family: "Titillium+Web", sans-serif;
+    padding-top: 40px;
+    color: #fff;
+    margin-top: 20px;
+}
+.einde {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.einde h3 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.einde p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+    color: #fff;
+}
+.einde-einde {
+    background-color: #000;
+    width: 100vw;
+    padding: 20px 0;
+    text-align: center;
+}
+.einde-einde p{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+.einde-einde span{
+    text-transform: uppercase;
+    opacity: 0.4;
+    font-weight: 200;
+}
+html{
+    background-color: #ecf0f1;
+}
