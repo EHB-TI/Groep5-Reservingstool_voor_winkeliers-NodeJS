@@ -1,0 +1,37 @@
+<!--
+Theme Name:    Login deel voor Programming Project
+Author:        Tugçe Demir
+
+Examples from: https://www.adobewordpress.com/html5-ve-css3-ile-flat-giris-ekrani 
+
+gebruik gemaakt van de bovenste link met aanpassingen aan de code 
+
+-->
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/login.css" />
+    <script src="../js/login.js"></script>
+</head>
+<body>
+    <section class="login-wrapper">
+        <form class="login-panel">
+          <input type="email" id="mail" required>
+          <label for="mail" unselectable="on">Email</label>
+          <input type="password" id="password" required>
+          <label for="password" unselectable="on">Wachtwoord</label>
+          <input type="checkbox" id="remember">
+          <label for="remember" class="remember">Onthoud mij</label>
+          <input type="submit" value="Inloggen" onclick="loginConfirmation()">
+          <a href="../signup" class="forget-password">Nog geen account?</a>
+        </form>
+      </section>      
+    
+</body>
+</html>
