@@ -41,7 +41,7 @@ img {
 .container {
     display: flex;
     flex-direction: column;
-    width: 95%;
+    max-width: 800px;
     margin: auto;
     padding: 2%;
 }
