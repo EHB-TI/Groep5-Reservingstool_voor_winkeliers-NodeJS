@@ -1,6 +1,7 @@
 /*
 Theme Name: Bewerken van het profiel voor programming project
 Author: Zakaria Lamsakam
+Email: zakaria.lamsakam@student.ehb.be
 */
 
 'use strict'

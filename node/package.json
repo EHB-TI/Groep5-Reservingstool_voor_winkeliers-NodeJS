@@ -1,0 +1,28 @@
+{
+  "name": "Groep5-Reservingstool_voor_winkeliers-NodeJS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://faillearnaud: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@github.com/EHB-TI/Groep5-Reservingstool_voor_winkeliers-NodeJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EHB-TI/Groep5-Reservingstool_voor_winkeliers-NodeJS/issues"
+  },
+  "homepage": "https://github.com/EHB-TI/Groep5-Reservingstool_voor_winkeliers-NodeJS#readme",
+  "devDependencies": {
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "mysql2": "^2.2.5"
+  }
+}
