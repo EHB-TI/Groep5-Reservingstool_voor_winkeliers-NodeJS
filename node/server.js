@@ -124,7 +124,8 @@ app.get('/api/insert/customer', (req, res) => {
                 res.send({error: err.sqlMessage});
             }
             else{
-                res.send({status: "success"});
+                result.status = "success";
+                res.send(result);
             }
         });
     }
@@ -146,7 +147,8 @@ app.get('/api/insert/review', (req, res) => {
                 res.send({error: err.sqlMessage});
             }
             else{
-                res.send({status: "success"});
+                result.status = "success";
+                res.send(result);
             }
         });
     }
@@ -167,10 +169,74 @@ app.get('/api/insert/reservation', (req, res) => {
                 res.send({error: err.sqlMessage});
             }
             else{
-                res.send({status: "success"});
+                result.status = "success";
+                res.send(result);
             }
         });
     }
+});
+
+function getSettersForUpdate(setObject){
+    let obj = {};
+    for(key of Object.keys(setObject)){
+        if(setObject[key]){
+            obj[key] = setObject[key];
+        }
+    }
+    return obj;
+}
+
+function convertToWhere(whereObject){
+    let i = 0;
+    let where = "";
+    let obj = {};
+    for(key of Object.keys(whereObject)){
+        if(whereObject[key]){
+            obj[key] = whereObject[key];
+            if(i == 0){
+                where += " WHERE ?";
+            }
+            else{
+                where += " AND ?"
+            }
+            i++;
+        }
+    }
+    return {where: where, values: obj};
+}
+
+function doUpdate(res, tableName, setObj, whereObj){
+    if(Object.keys(getSettersForUpdate(setObj)).length == 0){
+        res.send({error: `Er moet minsens 1 parameter zijn voor om data te veranderen! Je kan kizen tussen: ${Object.keys(setObj)}`});
+    }
+    else{
+        let whereConverted = convertToWhere(whereObj);
+        db.query(`UPDATE ${tableName} SET ?${whereConverted.where}`, [getSettersForUpdate(setObj), whereConverted.values], (err, result) => {
+            if(err) {
+                res.send({error: err.sqlMessage});
+            }
+            else{
+                result.status = "success";
+                res.send(result);
+            }
+        });
+    }
+}
+
+app.get('/api/update/customer', (req, res) => {
+    let setObj = {
+        first_name: req.query.set_first_name, 
+        last_name: req.query.set_last_name, 
+        email: req.query.set_email,
+        password: req.query.set_password
+    };
+    let whereObj = {
+        first_name: req.query.first_name, 
+        last_name: req.query.last_name, 
+        email: req.query.email,
+        password: req.query.password
+    };
+    console.log(doUpdate(res, "customers", setObj, whereObj));
 });
 
 
