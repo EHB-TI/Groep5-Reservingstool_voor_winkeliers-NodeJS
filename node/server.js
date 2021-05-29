@@ -38,8 +38,9 @@ db.query('show tables', (err, results) => {
 
 function createGetterLink(tableName){
     app.get(`/api/get/${tableName}`, (req, res) => {
-        let whereConverted = convertToWhere(req.query);
-        db.query(`SELECT * FROM ${tableName} ${whereConverted.text}`, whereConverted.values, (err, results) => {
+        let queryObject = splitFunctionsFromQuery(req.query);
+        let whereConverted = convertToWhere(queryObject.object);
+        db.query(`SELECT * FROM ${tableName} ${whereConverted.text}${queryObject.orderBy}${queryObject.sqlLimit}`, whereConverted.values, (err, results) => {
             if(err){
                 res.send({error: err.sqlMessage});
             }
@@ -72,7 +73,7 @@ function createInserterLink(tableName){
                     res.send({ error: err.sqlMessage });
                 }
                 else {
-                    result.status = "success";
+                    result.success = "true";
                     res.send(result);
                 }
             });
@@ -111,12 +112,12 @@ function createUpdateLink(tableName){
         else{
             let whereConverted = convertToWhere(whereObj);
             let setConverted = convertToSet(setObj);
-            db.query(`UPDATE ${tableName} SET ${setConverted.text}${whereConverted.text}`, [setConverted.values, whereConverted.values], (err, result) => {
+            db.query(`UPDATE ${tableName} SET ${setConverted.text}${whereConverted.text}`, setConverted.values.concat(whereConverted.values), (err, result) => {
                 if (err) {
-                    res.send({ error: err.sqlMessage });
+                    res.send({error: err.sqlMessage });
                 }
                 else {
-                    result.status = "success";
+                    result.success = "true";
                     res.send(result);
                 }
             });
@@ -156,6 +157,25 @@ function convertToSet(setObject){
         i++;
     }
     return {text: text, values: list}
+}
+
+
+function splitFunctionsFromQuery(queryObject){
+    let orderBy = "";
+    let sqlLimit = "";
+    if(queryObject.order_by_asc){
+        orderBy = ` ORDER BY ${queryObject.order_by_asc} ASC`;
+        delete queryObject.order_by_asc;
+    }
+    else if(queryObject.order_by_desc){
+        orderBy = ` ORDER BY ${queryObject.order_by_desc} DESC`;
+        delete queryObject.order_by_desc;
+    }
+    if(queryObject.sql_limit){
+        sqlLimit = ` LIMIT ${queryObject.sql_limit}`;
+        delete queryObject.sql_limit;
+    }
+    return {object: queryObject, orderBy: orderBy, sqlLimit: sqlLimit};
 }
 
 app.use('/', express.static('../public/'));

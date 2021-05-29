@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../store/style.css">
+    <link rel="stylesheet" href="../../css/store.css">
+    <script src="../../js/newTicket.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>New Ticket</title>
@@ -13,8 +14,9 @@
 
 <body>
     <div class="main-content">
-        <form>
+        <form id="form">
             <h1>Niew ticket</h1>
+            <div id="div-error" class="alert alert-danger" role="alert"></div>
             <div class="mb-3">
                 <label for="input-title" class="form-label">Titel van probleem</label>
                 <input type="text" class="form-control" id="input-title">
@@ -24,7 +26,7 @@
                 <textarea class="form-control" id="input-description" rows="3"></textarea>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary">Zenden</button>
+                <input id="button-send" type="submit" class="btn btn-primary" value="Zenden">
             </div>
         </form>
     </div>
