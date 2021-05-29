@@ -1,6 +1,6 @@
 <!-- 
 Theme Name:    Sign up deel voor Programming Project
-Author:        Tugçe Demir
+Author:        Tugçe Demir <tugce.demir@student.ehb.be>
 
 Examples from: https://www.adobewordpress.com/html5-ve-css3-ile-flat-giris-ekrani 
 
@@ -17,6 +17,10 @@ er is geen code example van signup op de bovenste link (zelf toegevoegd met styl
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/signup.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../js/signup.js"></script>
 </head>
 <body> 
@@ -35,8 +39,8 @@ er is geen code example van signup op de bovenste link (zelf toegevoegd met styl
           <label for="password" unselectable="on">Wachtwoord herhalen</label>
           <input type="checkbox" id="remember">
           <label for="remember" class="remember">Onthoud mij</label>
-          <input type="submit" value="Registreren">
-          <a href="../login" class="forget-password">Al een account?</a>
+          <button type="submit" class="btn btn-primary btn btn-block">Registreren</button>
+          <a href="../login/index.html" class="forget-password">Al een account?</a>
         </form>
       </section> 
 

@@ -1,38 +1,59 @@
-var users = [{mail: "tugce@hotmail.com", password: "123456"},
-{mail: "123@hotmail.com", password: "123456"}]
+/* 
+* Theme Name:    Login deel voor Programming Project
+* Author:        Tugçe Demir <tugce.demir@student.ehb.be>
+*
+* Examples from: https://www.youtube.com/watch?v=Mn0rdbJPWEo
+*
+* gebruik gemaakt van de bovenste link om te kunnen connecteren met de database 
+* maar zelf aanpassingen toegevoegt aan de code 
+*
+*/
 
-var enteredMail;
-var enteredPassword;
+const mysql  = require("mysql");
+const express = require("express");
+const bodyParser = require("body-parser");
+const encoder = bodyParser.urlencoded();
 
-var i;
+const app = express();
+app.use("/")
 
-function checkIt() {
-    enteredMail = document.getElementById("mail").value;
-    enteredPassword = document.getElementById("password").value;
+const connection = mysql.createConnection({
+    host: "dt5.ehb.be",
+    user: "2021PROGPROJGR5",
+    database: "2021PROGPROJGR5",
+    password: "8uGuEtMV"
+});
 
-    for(i of users) {
-        if((i.mail == enteredMail) && (i.password == enteredPassword))
-        {
-            return true;
+//connecteren met de database
+connection.connect(function(error) {
+    if(error) throw error
+    else console.log("Connected to the database successfully :)")
+});
+
+app.get("../",function(req,res){
+    res.sendFile(__dirname +"login/index.html")
+
+});
+
+app.post("../",encoder,function(req, res){
+    var email = req.body.email;
+    var password = req.body.password;
+
+    connection.query("SELECT * FROM customers WHERE email = ? AND password = ?", [email,password], function(error, results, fields){
+        if(results.length > 0) {
+            res.redirect("zoekpagina/index.html");
         }
-        else
-        {
-            return false;
+        else{
+            res.redirect("/");
         }
-    }
-}
+        res.end();
+    })
+})
 
-function loginConfirmation()
-    {
-        checkIt();
+//als de login succesvol is..
+app.get("../",function(req, res){
+    res.sendFile(__dirname + "zoekpagina/index.html");
+})
 
-        if(checkIt())
-        {
-            //window.open("pageName.html","_self");
-            alert("Login successful");
-        }
-        else
-        {
-            alert("Incorrect mail or password");
-        }
-    }
+//app poort
+app.listen(3000);
