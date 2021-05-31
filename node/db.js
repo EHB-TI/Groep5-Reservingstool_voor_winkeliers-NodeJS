@@ -1,3 +1,8 @@
+/**
+ * Author: Arnaud Faille
+ * Code inspired from https://www.npmjs.com/package/mysql2
+ */
+
 const mysql = require('mysql2');
 
 const db = mysql.createConnection({
