@@ -1,0 +1,36 @@
+html, body {
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+}
+
+.main {
+    height: 100%;
+}
+
+.main-content {
+    height: 100%;
+    margin: auto;
+    padding-top: 10px;
+    max-width: 800px;
+}
+
+.store-image {
+    width: 100%;
+    max-width: 800px;
+    max-height: 400px;
+}
+
+/*input[type=submit] {
+    text-transform: uppercase;
+    color: #ecf0f1;
+    background: #3498db;
+    border: 0;
+    padding: 10px;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    background: #328fce;
+}*/
