@@ -1,4 +1,4 @@
-async function getUser(event) {
+async function getUser() {
     const rawResponse = await fetch('../api/auth/me', {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
