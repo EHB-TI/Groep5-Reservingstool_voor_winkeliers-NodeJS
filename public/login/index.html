@@ -1,42 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--
+Theme Name:    Login deel voor Programming Project
+Author:        Tugçe Demir <tugce.demir@student.ehb.be>
 
+Examples from: https://www.adobewordpress.com/html5-ve-css3-ile-flat-giris-ekrani 
+
+-->
+
+<!DOCTYPE html>
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../js/auth.js"></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/login.js"></script>
 </head>
-
 <body>
-    <!--<form action="../api/auth/login" method="POST">-->
-        <input type="text" name="email" id="email">
-        <input type="text" name="password" id="password">
-        <input type="submit" id="button" value="login">
-    <!--</form>-->
-    <script>
-        // Code inspired from https://stackoverflow.com/questions/29775797/fetch-post-json-data
-        async function login(event) {
-            const rawResponse = await fetch('../api/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email: document.getElementById("email").value, password: document.getElementById("password").value })
-            });
-            const response = await rawResponse.json();
-
-            // Set token to localstorage
-            localStorage.setItem('token', response.token);
-
-            // Change page location
-            //window.location.href = "";
-        }
-
-        document.getElementById("button").addEventListener("click", login);                    
-    </script>
+    <section class="login-wrapper">
+        <form id="form" class="login-panel">
+          <input type="email" id="mail" required>
+          <label for="mail" unselectable="on">Email</label>
+          <input type="password" id="password" required>
+          <label for="password" unselectable="on">Wachtwoord</label>
+          <input type="checkbox" id="remember">
+          <label for="remember" class="remember">Onthoud mij</label>
+          <button type="submit" id="login-button" class="btn btn-primary btn btn-block">Inloggen</button>
+          <a href="../signup/index.html" class="forget-password">Nog geen account?</a>
+        </form>
+      </section>      
+    
 </body>
-
 </html>
