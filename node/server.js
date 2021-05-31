@@ -5,19 +5,20 @@
  * and https://www.youtube.com/watch?v=EN6Dx22cPRI&ab_channel=TraversyMedia
  */
 
-const { text } = require('express');
-const express = require('express');
-const mysql = require('mysql2');
+//const express = require('express');
+//const mysql = require('mysql2');
 
-const app = express();
+//const app = express();
+var [app, express] = require('./app');
 
 // Database configuration
-const db = mysql.createConnection({
+/*const db = mysql.createConnection({
     host: "dt5.ehb.be",
     user: "2021PROGPROJGR5",
     database: "2021PROGPROJGR5",
     password: "8uGuEtMV"
-});
+});*/
+const db = require("./db.js");
 
 // Getting tables list
 db.query('show tables', (err, results) => {
