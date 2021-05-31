@@ -21,16 +21,3 @@ html, body {
     max-width: 800px;
     max-height: 400px;
 }
-
-/*input[type=submit] {
-    text-transform: uppercase;
-    color: #ecf0f1;
-    background: #3498db;
-    border: 0;
-    padding: 10px;
-}
-
-input[type=submit]:hover {
-    cursor: pointer;
-    background: #328fce;
-}*/

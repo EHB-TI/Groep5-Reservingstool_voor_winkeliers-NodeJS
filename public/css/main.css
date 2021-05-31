@@ -69,3 +69,9 @@ article p:last-child {
 article p i {
 	margin-right: 1%;
 }
+
+form {
+	margin-bottom: 2%;
+	display: flex;
+	justify-content: center;
+}
