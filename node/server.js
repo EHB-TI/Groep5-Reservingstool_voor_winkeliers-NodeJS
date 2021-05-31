@@ -1,178 +1,183 @@
 /**
  * Author: Arnaud Faille
  * Inspired with https://github.com/expressjs/express/blob/master/examples/auth/index.js
+ * and https://www.npmjs.com/package/mysql2
+ * and https://www.youtube.com/watch?v=EN6Dx22cPRI&ab_channel=TraversyMedia
  */
 
-const express = require('express');
-const mysql = require('mysql2');
+//const express = require('express');
+//const mysql = require('mysql2');
 
-const app = express();
+//const app = express();
+var [app, express] = require('./app');
 
 // Database configuration
-const db = mysql.createConnection({
+/*const db = mysql.createConnection({
     host: "dt5.ehb.be",
     user: "2021PROGPROJGR5",
     database: "2021PROGPROJGR5",
     password: "8uGuEtMV"
-});
+});*/
+const db = require("./db.js");
 
-// Database connection
-db.connect((err) => {
-    if(err){
-        throw err;
+// Getting tables list
+db.query('show tables', (err, results) => {
+    if (err) throw err;
+    for (table of results) {
+        let tableName = table[Object.keys(table)[0]];
+
+        // Get data from database
+        createGetterLink(tableName);
+
+        // Insert data to database
+        createInserterLink(tableName);
+
+        // Update data to database
+        createUpdateLink(tableName);
     }
-    console.log("Connection etablished !")
 });
 
-// Code from https://www.youtube.com/watch?v=EN6Dx22cPRI&ab_channel=TraversyMedia
-// Get Data from database
-app.get('/api/get/stores', (req, res) => {
-    db.query('SELECT * FROM stores', (err, results) => {
-        if(err){
-            res.send({error: err.sqlMessage});
-        }
-        else{
-            res.send(results);
-        }
-    });
-});
-app.get('/api/get/customers', (req, res) => {
-    db.query('SELECT * FROM customers', (err, results) => {
-        if(err){
-            res.send({error: err.sqlMessage});
-        }
-        else{
-            res.send(results);
-        }
-    });
-});
-app.get('/api/get/tickets', (req, res) => {
-    db.query('SELECT * FROM tickets', (err, results) => {
-        if(err){
-            res.send({error: err.sqlMessage});
-        }
-        else{
-            res.send(results);
-        }
-    });
-});
-app.get('/api/get/ticket_messages', (req, res) => {
-    db.query('SELECT * FROM ticket_messages', (err, results) => {
-        if(err){
-            res.send({error: err.sqlMessage});
-        }
-        else{
-            res.send(results);
-        }
-    });
-});
-app.get('/api/get/special_closures', (req, res) => {
-    db.query('SELECT * FROM special_closures', (err, results) => {
-        if(err){
-            res.send({error: err.sqlMessage});
-        }
-        else{
-            res.send(results);
-        }
-    });
-});
-app.get('/api/get/reviews', (req, res) => {
-    db.query('SELECT * FROM reviews', (err, results) => {
-        if(err){
-            res.send({error: err.sqlMessage});
-        }
-        else{
-            res.send(results);
-        }
-    });
-});
-app.get('/api/get/reservations', (req, res) => {
-    db.query('SELECT * FROM reservations', (err, results) => {
-        if(err){
-            res.send({error: err.sqlMessage});
-        }
-        else{
-            res.send(results);
-        }
-    });
-});
-app.get('/api/get/opening_hours', (req, res) => {
-    db.query('SELECT * FROM opening_hours', (err, results) => {
-        if(err){
-            res.send({error: err.sqlMessage});
-        }
-        else{
-            res.send(results);
-        }        
-    });
-});
-
-
-app.get('/api/insert/customer', (req, res) => {
-    if(!req.query.first_name || !req.query.last_name || !req.query.email || !req.query.password){
-        res.send({error: "Er ontbreekt een parameter ! De nodige parameters zijn: first_name, last_name, email en password"});
-    }
-    else{
-        let obj = {
-            first_name: req.query.first_name, 
-            last_name: req.query.last_name, 
-            email: req.query.email,
-            password: req.query.password
-        };
-        db.query('INSERT INTO customers SET ?', obj, (err, result) => {
-            if(err) {
+function createGetterLink(tableName){
+    app.get(`/api/get/${tableName}`, (req, res) => {
+        let queryObject = splitFunctionsFromQuery(req.query);
+        let whereConverted = convertToWhere(queryObject.object);
+        db.query(`SELECT * FROM ${tableName} ${whereConverted.text}${queryObject.orderBy}${queryObject.sqlLimit}`, whereConverted.values, (err, results) => {
+            if(err){
                 res.send({error: err.sqlMessage});
             }
             else{
-                res.send({status: "success"});
+                res.send(results);
             }
         });
-    }
-});
+    });
+}
 
-app.get('/api/insert/review', (req, res) => {
-    if(!req.query.store_id || !req.query.customer_id || !req.query.score || !req.query.description){
-        res.send({error: "Er ontbreekt een parameter ! De nodige parameters zijn: store_id, customer_id, score en description"});
-    }
-    else{
-        let obj = {
-            store_id: req.query.store_id, 
-            customer_id: req.query.customer_id, 
-            score: req.query.score,
-            description: req.query.description
-        };
-        db.query('INSERT INTO reviews SET ?', obj, (err, result) => {
-            if(err) {
-                res.send({error: err.sqlMessage});
-            }
-            else{
-                res.send({status: "success"});
-            }
-        });
-    }
-});
+function createInserterLink(tableName){
+    app.get(`/api/insert/${tableName}`, (req, res) => {
+        if (Object.keys(req.query).length == 0) {
+            db.query(`SELECT * FROM ${tableName}`, (err, results, fields) => {
+                if(err){
+                    res.send({ error: "Er ontbreekt een parameter ! Een error is gekomen waardoor de lijst van mogelijke parameters niet te krijgen is." });
+                }
+                else{
+                    let fieldsNames = [];
+                    for(field of fields){
+                        fieldsNames.push(field.name);
+                    }
+                    res.send({ error: `Er ontbreekt een parameter ! De nodige parameters zijn: ${fieldsNames}`});
+                }
+            });
+        }
+        else {
+            db.query(`INSERT INTO ${tableName} SET ?`, req.query, (err, result) => {
+                if (err) {
+                    res.send({ error: err.sqlMessage });
+                }
+                else {
+                    result.success = "true";
+                    res.send(result);
+                }
+            });
+        }
+    });
+}
 
-app.get('/api/insert/reservation', (req, res) => {
-    if(!req.query.store_id || !req.query.customer_id || !req.query.date){
-        res.send({error: "Er ontbreekt een parameter ! De nodige parameters zijn: store_id, customer_id en date"});
-    }
-    else{
-        let obj = {
-            store_id: req.query.store_id, 
-            customer_id: req.query.customer_id, 
-            date: req.query.date
-        };
-        db.query('INSERT INTO reservations SET ?', obj, (err, result) => {
-            if(err) {
-                res.send({error: err.sqlMessage});
+function createUpdateLink(tableName){
+    app.get(`/api/update/${tableName}`, (req, res) => {
+        // Split set fields and where fields
+        let setObj = {};
+        let whereObj = {};
+        for(param of Object.keys(req.query)){
+            if(param.startsWith("set_")){
+                setObj[param] = req.query[param];
             }
-            else{
-                res.send({status: "success"});
+            else {
+                whereObj[param] = req.query[param];
             }
-        });
-    }
-});
+        }
 
+        if(Object.keys(setObj).length == 0){
+            db.query(`SELECT * FROM ${tableName}`, (err, results, fields) => {
+                if(err){
+                    res.send({ error: "Er is geen parameter voor een colom te veranderen ! Een error is gekomen waardoor de lijst van mogelijke parameters niet te krijgen is." });
+                }
+                else{
+                    let fieldsNames = [];
+                    for(field of fields){
+                        fieldsNames.push("set_" + field.name);
+                    }
+                    res.send({ error: `Er is geen parameter voor een colom te veranderen ! De mogelijke parameters zijn: ${fieldsNames}`});
+                }
+            });
+        }
+        else{
+            let whereConverted = convertToWhere(whereObj);
+            let setConverted = convertToSet(setObj);
+            db.query(`UPDATE ${tableName} SET ${setConverted.text}${whereConverted.text}`, setConverted.values.concat(whereConverted.values), (err, result) => {
+                if (err) {
+                    res.send({error: err.sqlMessage });
+                }
+                else {
+                    result.success = "true";
+                    res.send(result);
+                }
+            });
+        }
+
+
+    });
+}
+
+function convertToWhere(whereObject) {
+    let i = 0;
+    let text = "";
+    let list = [];
+    for (key of Object.keys(whereObject)) {
+        list.push(whereObject[key]);
+        if (i == 0) {
+            text += ` WHERE ${key} = ?`;
+        }
+        else {
+            text += ` AND ${key} = ?`;
+        }
+        i++;
+    }
+    return { text: text, values: list};
+}
+
+function convertToSet(setObject){
+    let i = 0;
+    let text = "";
+    let list = [];
+    for (key of Object.keys(setObject)) {
+        text += ` ${key.substr(4)} = ?`;
+        list.push(setObject[key]);
+        if(i != 0 && i < Object.keys(setObject).length){
+            text += ",";
+        }
+        i++;
+    }
+    return {text: text, values: list}
+}
+
+
+function splitFunctionsFromQuery(queryObject){
+    let orderBy = "";
+    let sqlLimit = "";
+    if(queryObject.order_by_asc){
+        orderBy = ` ORDER BY ${queryObject.order_by_asc} ASC`;
+        delete queryObject.order_by_asc;
+    }
+    else if(queryObject.order_by_desc){
+        orderBy = ` ORDER BY ${queryObject.order_by_desc} DESC`;
+        delete queryObject.order_by_desc;
+    }
+    if(queryObject.sql_limit){
+        sqlLimit = ` LIMIT ${queryObject.sql_limit}`;
+        delete queryObject.sql_limit;
+    }
+    return {object: queryObject, orderBy: orderBy, sqlLimit: sqlLimit};
+}
 
 app.use('/', express.static('../public/'));
 

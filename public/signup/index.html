@@ -4,10 +4,6 @@ Author:        Tugçe Demir <tugce.demir@student.ehb.be>
 
 Examples from: https://www.adobewordpress.com/html5-ve-css3-ile-flat-giris-ekrani 
 
-gebruik gemaakt van de bovenste link voor login
-voor signup gedeelte is er code erbij toegevoegt bij de login code, 
-er is geen code example van signup op de bovenste link (zelf toegevoegd met styling & html van login)
-
 -->
 
 <!DOCTYPE html>
@@ -25,7 +21,7 @@ er is geen code example van signup op de bovenste link (zelf toegevoegd met styl
 </head>
 <body> 
     <section class="login-wrapper">
-        <form class="login-panel">
+        <form id="form" class="login-panel">
           
           <input type="text" id="name" required>
           <label for="name" unselectable="on">Voornaam</label>
@@ -39,7 +35,7 @@ er is geen code example van signup op de bovenste link (zelf toegevoegd met styl
           <label for="password" unselectable="on">Wachtwoord herhalen</label>
           <input type="checkbox" id="remember">
           <label for="remember" class="remember">Onthoud mij</label>
-          <button type="submit" class="btn btn-primary btn btn-block">Registreren</button>
+          <button type="submit" id="button" class="btn btn-primary btn btn-block">Registreren</button>
           <a href="../login/index.html" class="forget-password">Al een account?</a>
         </form>
       </section> 

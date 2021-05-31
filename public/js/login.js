@@ -2,58 +2,42 @@
 * Theme Name:    Login deel voor Programming Project
 * Author:        Tugçe Demir <tugce.demir@student.ehb.be>
 *
-* Examples from: https://www.youtube.com/watch?v=Mn0rdbJPWEo
+* Examples from: https://www.youtube.com/watch?v=Mn0rdbJPWEo ,
+* https://stackoverflow.com/questions/29775797/fetch-post-json-data
 *
-* gebruik gemaakt van de bovenste link om te kunnen connecteren met de database 
-* maar zelf aanpassingen toegevoegt aan de code 
-*
+* 
 */
 
-const mysql  = require("mysql");
-const express = require("express");
-const bodyParser = require("body-parser");
-const encoder = bodyParser.urlencoded();
+window.onload = () => {
 
-const app = express();
-app.use("/")
+async function login(event) {
+    const rawResponse = await fetch('../api/auth/login', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: document.getElementById("mail").value, password: document.getElementById("password").value })
+    });
+    const response = await rawResponse.json();
 
-const connection = mysql.createConnection({
-    host: "dt5.ehb.be",
-    user: "2021PROGPROJGR5",
-    database: "2021PROGPROJGR5",
-    password: "8uGuEtMV"
-});
+    if(response.auth){
+     // set token to localstorage
+    localStorage.setItem('token', response.token);
 
-//connecteren met de database
-connection.connect(function(error) {
-    if(error) throw error
-    else console.log("Connected to the database successfully :)")
-});
+    // pagina locatie veranderen
+    window.location.href = "../zoekpagina";
+} else{
+    /* hier komt code */
 
-app.get("../",function(req,res){
-    res.sendFile(__dirname +"login/index.html")
+}}
 
-});
+document.getElementById("form").addEventListener("submit", event => {
 
-app.post("../",encoder,function(req, res){
-    var email = req.body.email;
-    var password = req.body.password;
+    event.preventDefault();
+    
+    login();
+    
+    });
 
-    connection.query("SELECT * FROM customers WHERE email = ? AND password = ?", [email,password], function(error, results, fields){
-        if(results.length > 0) {
-            res.redirect("zoekpagina/index.html");
-        }
-        else{
-            res.redirect("/");
-        }
-        res.end();
-    })
-})
-
-//als de login succesvol is..
-app.get("../",function(req, res){
-    res.sendFile(__dirname + "zoekpagina/index.html");
-})
-
-//app poort
-app.listen(3000);
+}
