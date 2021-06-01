@@ -30,8 +30,8 @@ $ cd node; nodeman server.js
   * mysql2
 
 ### Wie heeft wat gedaan ?
-Demir Tugçe: login pagina, registreer pagina.
-Lamsakam Zakaria: profiel pagina, profiel bewerken.
-Zoetardt Craig: navigatie, footer, zoek pagina.
-Faille Arnaud: lees meer pagina, tickets pagina, API server.
+* Demir Tugçe: login pagina, registreer pagina.
+* Lamsakam Zakaria: profiel pagina, profiel bewerken.
+* Zoetardt Craig: navigatie, footer, zoek pagina.
+* Faille Arnaud: lees meer pagina, tickets pagina, API server.
 
