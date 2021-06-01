@@ -1,0 +1,60 @@
+/**
+ * Author: Craig Zoetardt
+ */
+window.onload = async () => {
+    const mainContentDiv = document.getElementById("main-content");
+    let stores = await getData("http://localhost:3000/api/get/stores?order_by_desc=RAND()");
+
+    console.log(searchBar);
+
+    searchBar.addEventlistener('keyup', (e) => {
+        const searchString = e.target.value.toLowerCase();
+
+        const filteredstores = stores.filter(store => {
+            return store.name.toLowerCase().includes(searchString);
+        });
+        console.log(filteredstores);
+        displaystores (filteredstores);
+    });
+
+
+    const displaystores = (stores) => {
+        for (store of stores) {
+            let winkeldiv = document.createElement("div");
+            let naamwinkel = document.createElement("h2");
+            let fotowinkel = document.createElement("img");
+            let winkelomschrijving = document.createElement("p");
+            let leesmeerbutoon = document.createElement("button");
+            let leesmeerlink = document.createElement("a");
+
+            winkeldiv.classList.add("winkel");
+            naamwinkel.innerText = store.name;
+            fotowinkel.src = "../img/Horseshoe-Bend-Winter-800px-20190218-IMG_3389.jpg";
+            fotowinkel.classList.add("winkelaflb");
+            winkelomschrijving.innerText = store.description;
+            leesmeerlink.innerText = "Lees meer";
+            leesmeerlink.href = "http://localhost:3000/store?id=" + store.id;
+
+            mainContentDiv.appendChild(winkeldiv);
+            winkeldiv.appendChild(naamwinkel);
+            winkeldiv.appendChild(fotowinkel);
+            winkeldiv.appendChild(winkelomschrijving);
+            winkeldiv.appendChild(leesmeerbutoon);
+            leesmeerbutoon.appendChild(leesmeerlink);
+        };
+    };
+
+
+
+
+
+
+
+
+
+
+    async function getData(url) {
+        let data = await fetch(url);
+        return await data.json();
+    };
+};

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/auth.js"></script>
+</head>
+
+<body>
+    <!--<form action="../api/auth/login" method="POST">-->
+        <input type="text" name="email" id="email">
+        <input type="text" name="password" id="password">
+        <input type="submit" id="button" value="login">
+    <!--</form>-->
+    <script>
+        // Code inspired from https://stackoverflow.com/questions/29775797/fetch-post-json-data
+        async function login(event) {
+            const rawResponse = await fetch('../api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: document.getElementById("email").value, password: document.getElementById("password").value })
+            });
+            const response = await rawResponse.json();
+
+            // Set token to localstorage
+            localStorage.setItem('token', response.token);
+
+            // Change page location
+            //window.location.href = "";
+        }
+
+        document.getElementById("button").addEventListener("click", login);                    
+    </script>
+</body>
+
+</html>
