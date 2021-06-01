@@ -34,7 +34,7 @@ async function loadStores() {
         fotowinkel.classList.add("winkelaflb");
         winkelomschrijving.innerText = store.description;
         leesmeerlink.innerText = "Lees meer";
-        leesmeerlink.href = "http://localhost:3000/store?id=" + store.id;
+        leesmeerlink.href = "http://localhost:3000/store?store=" + store.id;
 
         storesDiv.appendChild(winkeldiv);
         winkeldiv.appendChild(naamwinkel);

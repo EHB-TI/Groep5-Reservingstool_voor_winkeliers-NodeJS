@@ -10,8 +10,12 @@ window.onload = () => {
     const addressSpan = document.getElementById("store-address");
     const openingsHoursUl = document.getElementById("store-openingshours");
     const specialClosuresUl = document.getElementById("store-special-closures");
+    const reserveerA = document.getElementById("reserveer");
+
+    reserveerA.href = "../reserveer?store=" + storeId;
 
     getData(`../api/get/stores?id=${storeId}`).then(async (result) => {
+        console.log(result);
         titleH1.innerText = result[0].name;
         descriptionP.innerText = result[0].description;
         phoneSpan.innerText = result[0].phone_number;
@@ -22,7 +26,7 @@ window.onload = () => {
         for(openingshour of openingshours){
             let li = document.createElement("li");
 
-            li.innerText = DAYS_OF_WEEK[openingshour.week_day] + " " + openingshour.begin_hour + " tot " + openingshour.end_hour;
+            li.innerText = DAYS_OF_WEEK[openingshour.week_day - 1] + " " + openingshour.begin_hour + " tot " + openingshour.end_hour;
             
             openingsHoursUl.appendChild(li);
         }
