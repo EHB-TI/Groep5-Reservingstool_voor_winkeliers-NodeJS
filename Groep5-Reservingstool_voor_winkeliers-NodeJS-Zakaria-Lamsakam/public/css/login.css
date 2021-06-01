@@ -1,8 +1,9 @@
 /* 
-* Theme Name:    Sign up deel voor Programming Project
+* Theme Name:    Login deel voor Programming Project
 * Author:        Tugçe Demir <tugce.demir@student.ehb.be>
 *
 * Examples from: https://www.adobewordpress.com/html5-ve-css3-ile-flat-giris-ekrani 
+*
 *
 */
 
@@ -14,6 +15,10 @@ html {
   margin: 0;
   padding: 0;
   width: 100%;
+}
+
+#error-message{
+  color: red;
 }
  
 body {
@@ -45,7 +50,7 @@ body {
     transition: all 1s;
   }
 
-/* ontwerp formulier, schaduw voor de box, witte achtergrond */
+  /* ontwerp formulier, schaduw voor de box, witte achtergrond */
 
   .login-wrapper .login-panel {
     box-sizing: border-box;
@@ -62,7 +67,6 @@ body {
   }
 
 /* Labelstructuren die verschijnen */
-
   .login-wrapper .login-panel label {
     font-size: 16px;
     display: block;
@@ -75,8 +79,7 @@ body {
 /* Stijl geven + animatie > label, animatie mag maar 1x afspelen */
 
   .login-wrapper .login-panel input[type="email"] + label,
-.login-wrapper .login-panel input[type="password"] + label,
-.login-wrapper .login-panel input[type="text"] + label{
+.login-wrapper .login-panel input[type="password"] + label {
   position: relative;
   color: #c4cacd;
   transition: all .3s;
@@ -86,8 +89,7 @@ body {
 }
  
 .login-wrapper .login-panel input[type="email"]:focus + label,
-.login-wrapper .login-panel input[type="password"]:focus + label,
-.login-wrapper .login-panel input[type="text"]:focus + label{
+.login-wrapper .login-panel input[type="password"]:focus + label {
   font-size: 16px;
   color: #34495e;
   animation-fill-mode: forwards;
@@ -97,8 +99,7 @@ body {
 
 .login-wrapper .login-panel input[type="email"],
 .login-wrapper .login-panel input[type="password"],
-.login-wrapper .login-panel input[type="submit"],
-.login-wrapper .login-panel input[type="text"] {
+.login-wrapper .login-panel input[type="submit"] {
   font: 400 20px 'Hind', sans-serif;
   width: 100%;
   box-sizing: border-box;
@@ -116,33 +117,30 @@ body {
 /* */
 
 .login-wrapper .login-panel input[type="email"]:focus,
-.login-wrapper .login-panel input[type="password"]:focus,
-.login-wrapper .login-panel input[type="text"]:focus {
+.login-wrapper .login-panel input[type="password"]:focus {
   background-color: #E1E6E7
 }
  
 .login-wrapper .login-panel input[type="email"]:focus,
 .login-wrapper .login-panel input[type="password"]:focus,
-.login-wrapper .login-panel input[type="submit"]:focus,
-.login-wrapper .login-panel input[type="text"]:focus {
+.login-wrapper .login-panel input[type="submit"]:focus {
   outline: none;
 }
 
 /* We geven bij juiste invoer van mail en passwoord aan de linkerkant een blauwe rand*/
 
 .login-wrapper .login-panel input[type="email"]:valid,
-.login-wrapper .login-panel input[type="password"]:valid,
-.login-wrapper .login-panel input[type="text"]:valid{
+.login-wrapper .login-panel input[type="password"]:valid {
   border-left: 3px solid #3498db;
 }
  
 .login-wrapper .login-panel input[type="email"]:valid + label,
-.login-wrapper .login-panel input[type="password"]:valid + label,
-.login-wrapper .login-panel input[type="text"]:valid + label {
+.login-wrapper .login-panel input[type="password"]:valid + label {
   color: #3498db !important;
 }
 
 /* De checkbox en de tekst ernaast "Onthoud mij" een stijl geven */
+
 
 .login-wrapper .login-panel input[type="checkbox"] {
     opacity: 0;
@@ -205,7 +203,7 @@ body {
     background-color: #2980b9;
   }
 
-  /* "Al een account?" ( klasse .forget-password ) een stijl geven */
+/* "Nog geen account?" ( klasse .forget-password ) een stijl geven */
 
   .login-wrapper .login-panel .forget-password {
     margin-top: 20px;
@@ -222,7 +220,7 @@ body {
     text-decoration: underline;
   }
 
-  /* Mobiel */
+/* Mobiel */
 
 @media (max-width: 768px) {
   .login-wrapper .login-panel {
@@ -233,14 +231,14 @@ body {
 
 /* Animaties */
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
-  100% {
-    opacity: 1;
-  }
-}
    
   @keyframes label {
     0% {
