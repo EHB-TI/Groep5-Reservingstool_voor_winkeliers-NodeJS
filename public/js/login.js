@@ -27,10 +27,9 @@ async function login(event) {
 
     // pagina locatie veranderen
     window.location.href = "../zoekpagina";
-} else{
-    /* hier komt code */
-
-}}
+    } else{
+        document.getElementById("error-message").innerHTML = "Er is iets fout gelopen, probeer opnieuw."
+    }}
 
 document.getElementById("form").addEventListener("submit", event => {
 
@@ -39,5 +38,4 @@ document.getElementById("form").addEventListener("submit", event => {
     login();
     
     });
-
 }
