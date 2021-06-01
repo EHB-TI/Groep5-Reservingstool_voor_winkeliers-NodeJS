@@ -3,7 +3,7 @@
 De bedoeling van dit project is om ervoor te zorgen dat de klanten reservaties kunnen maken bij de winkels naar hun keuze. Ook zullen ze zich dus kunnen registreren/inloggen alsook hun profiel bekijken en bewerken. Ze zullen ook de mogelijkheid hebben om winkels op te zoeken en om er meer informatie van te vinden en ten laatste zullen ze ook de mogelijkheid hebben om tickets aan te maken.
 
 ### Setup:
-Na het clonen van deze repo kan u het project openen in visual studio code en daneen terminal openen geef daarna de volgende commands:
+Na het clonen van deze repo kan u het project openen in visual studio code en dan een terminal openen geef daarna de volgende commands:
 
 $ cd node; npm install -g nodeman; npm install 
 
