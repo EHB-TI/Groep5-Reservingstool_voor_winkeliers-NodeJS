@@ -24,3 +24,5 @@ $ cd node; nodeman server.js
   *jsonwebtoken
   
   *webpack
+  
+  *mysql2
