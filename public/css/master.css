@@ -23,9 +23,9 @@ p {
     font-family: Arial;
 }
 
-img {
+/*img {
     width: 100%;
-}
+}*/
 
 .container {
     display: flex;

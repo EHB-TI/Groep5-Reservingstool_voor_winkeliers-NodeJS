@@ -1,0 +1,74 @@
+<!--
+Theme Name:  Profiel pagina voor programming project
+Author: Zakaria Lamsakam
+Email: zakaria.lamsakam@student.ehb.be
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/profiel.css">
+    <script src="../js/auth.js"></script>
+    <script src="../js/profiel.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Aanmaak navigatie balk -->
+    <div class="test">
+        <script>
+            $(".test").load("../navfooter/nav.html");
+        </script>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="profile-head">
+                <div class="profiles col-xs-8 col-xs-push-2  col-sm-10 col-sm-push-1 thumbnail">
+                    <div class="col-md-9">
+                        <div class="row">
+                            <span class="col-sm-12">
+                                <h1>Profiel</h1>
+                            </span>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+
+                                <!--Hier wordt de email,de voornaam en de achternaam op de pagina gemaakt en op de webpagina getoont. -->
+                                <ul>
+                                    <li class="Email"><span>Email:</span><span id="Email"></span></li>
+                                    <li class="Voornaam"><span>Voornaam:</span><span id="Voornaam"></span></li>
+                                    <li class="Achternaam"><span>Achternaam:</span><span id="Achternaam"></span></li>
+
+                                </ul>
+                            </div>
+                            <div>
+                                
+                                <!--Hier wordt een knop gemaakt op naar de profiel berwerken pagina te gaan-->
+                                <button type="submit" class="button" id="button">Profiel bewerken</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="Footer">
+        <script>
+
+            $(".Footer").load("../navfooter/footer.html");
+
+        </script>
+    </div>
+</body>
+
+</html>

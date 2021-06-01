@@ -20,12 +20,40 @@ var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 var bcrypt = require('bcryptjs');
 var config = require('../config'); // get config file
 
+router.get('/changePassword', function (req, res) {
+
+    if(!req.query.email || !req.query.password || !req.query.new_password){
+        res.status(500).send("Een parameter is niet aanwezig! De 3 nodige parameters zijn: email, password en new_password.");
+    }
+    else{
+        db.query("SELECT * FROM customers WHERE email = ?", req.query.email, (err, results) => {
+            if (err) return res.status(500).send('Error on the server.');
+            if (Object.keys(results).length == 0) return res.status(404).send('No user found.');
+    
+            // check if the password is valid
+            var passwordIsValid = bcrypt.compareSync(req.query.password, results[0].password);
+            if (!passwordIsValid) return res.status(401).send({ auth: false, token: null });
+    
+            var hashedPassword = bcrypt.hashSync(req.query.new_password, 8);
+
+            db.query("UPDATE customers SET password = ? WHERE email = ?", [hashedPassword, req.query.email], (err, result) => {
+                if (err) {
+                    res.send({error: err.sqlMessage});
+                }
+                else {
+                    result.success = "true";
+                    res.send(result);
+                }
+            });
+        });
+    }
+});
+
 router.post('/login', function (req, res) {
 
     db.query("SELECT * FROM customers WHERE email = ?", req.body.email, (err, results) => {
         if (err) return res.status(500).send('Error on the server.');
         if (Object.keys(results).length == 0) return res.status(404).send('No user found.');
-        results[0]
 
         // check if the password is valid
         var passwordIsValid = bcrypt.compareSync(req.body.password, results[0].password);
