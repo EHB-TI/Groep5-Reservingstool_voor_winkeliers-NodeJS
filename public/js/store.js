@@ -9,6 +9,8 @@ window.onload = () => {
     const phoneSpan = document.getElementById("store-phone");
     const addressSpan = document.getElementById("store-address");
     const openingsHoursUl = document.getElementById("store-openingshours");
+    const postCodeSpan = document.getElementById("store-post-code");
+    const postBusSpan = document.getElementById("store-post-bus");
     const specialClosuresUl = document.getElementById("store-special-closures");
     const reserveerA = document.getElementById("reserveer");
 
@@ -21,6 +23,8 @@ window.onload = () => {
         phoneSpan.innerText = result[0].phone_number;
         addressSpan.innerText = result[0].adress;
         document.title = result[0].name;
+        postCodeSpan.innerText = result[0].post_code;
+        postBusSpan.innerText = result[0].postbus;
 
         const openingshours = await getData(`../api/get/opening_hours?store_id=${storeId}`);
         for(openingshour of openingshours){
