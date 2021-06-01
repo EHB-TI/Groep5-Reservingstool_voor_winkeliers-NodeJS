@@ -1,0 +1,85 @@
+/*
+Theme Name:  Profiel pagina voor programming project
+Author: Zakaria Lamsakam
+Email: zakaria.lamsakam@student.ehb.be
+*/
+
+
+body {
+    background: #bdc3c7;
+}
+
+.profile-head {
+    height: 400px;
+    width: 400px;
+    background-color: white;
+    padding: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+
+.profile-head h5 {
+    width: 100%;
+    padding: 5px 5px 0px 5px;
+    text-align: justify;
+    font-weight: bold;
+    font-size: 35px;
+    text-transform: capitalize;
+    margin-bottom: 0;
+}
+
+
+.profile-head ul {
+    list-style: none;
+    padding: 0;
+}
+
+.profile-head ul li {
+    display: block;
+    color: black;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.profile-head ul li:hover span {
+    color: rgb(0, 4, 51);
+}
+
+.profile-head ul li span {
+    color: #555;
+    padding-right: 10px;
+}
+
+.button{
+    background-color: #3498db;
+    margin-top: 2px;;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 5px;
+    
+}
+
+/*media query*/
+@media only screen and (max-width:700px) {
+    body {
+      background-color:#bdc3c7;
+      height: 400px;
+      width: 100%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .profile-head ul li {
+        display: block;
+        color: black;
+        padding: 5px;
+        font-size: 15px;
+    }
+
+
+}   
+
+
