@@ -4,6 +4,7 @@ De bedoeling van dit project is om ervoor te zorgen dat de klanten reservaties k
 
 ### Setup:
 Na het clonen van deze repo kan u het project openen in visual studio code en daneen terminal openen geef daarna de volgende commands:
+
 $ cd node; npm install -g nodeman; npm install 
 
 ### Run:
