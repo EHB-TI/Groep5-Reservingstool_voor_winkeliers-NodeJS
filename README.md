@@ -8,7 +8,7 @@ Na het clonen van deze repo kan u het project openen in visual studio code en da
 $ cd node; npm install -g nodeman; npm install 
 
 ### Run:
-Open opniew de terminal en geef de volgende commands in en ga daarna naar uw browser naar het adres(**http://localhost:3000**):
+Open opnieuw de terminal en geef de volgende commands in en ga daarna naar uw browser naar het adres(**http://localhost:3000**):
 
 $ cd node; nodeman server.js 
 
