@@ -1,0 +1,78 @@
+/* source: https://www.youtube.com/watch?v=zDHC4r5eCdY*/
+
+.rating-container, .rating-wrap{
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+
+/*styling star rating*/
+.rating {
+	border: none;
+	float: left;
+}
+
+.rating > input{
+	display: none;
+}
+
+.rating > label:before{
+	content: '\f005';
+	font-family: FontAwesome;
+	margin: 5px;
+	font-size: 2rem;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.rating > .half:before{
+	content: '\f089';
+	position: absolute;
+	cursor: pointer;
+}
+
+
+.rating > label{
+	color: #ddd;
+	float: right;
+	cursor: pointer;
+}
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover, 
+.rating:not(:checked) > label:hover ~ label{
+	color: gold;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label{
+	color: goldenrod;
+}
+
+textarea {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 100%;
+}
+
+article p {
+	margin-top: 2%;
+}
+
+article p:last-child {
+	margin-bottom: 2%;
+}
+
+article p i {
+	margin-right: 1%;
+}
+
+form {
+	margin-bottom: 2%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}

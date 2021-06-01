@@ -4,7 +4,6 @@
 *
 * Examples from: https://www.adobewordpress.com/html5-ve-css3-ile-flat-giris-ekrani 
 *
-* gebruik gemaakt van de bovenste link maar zelf aanpassingen toegevoegt aan de code 
 *
 */
 
@@ -16,6 +15,10 @@ html {
   margin: 0;
   padding: 0;
   width: 100%;
+}
+
+#error-message{
+  color: red;
 }
  
 body {

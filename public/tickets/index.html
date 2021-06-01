@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <link rel="stylesheet" href="../store/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -12,6 +13,25 @@
 </head>
 
 <body>
+=======
+    <link rel="stylesheet" href="../css/store.css">
+    <script src="../js/auth.js"></script>
+    <script src="../js/tickets.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Tickets</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    
+    <!-- Aanmaak navigatie balk -->
+    <div class="test">
+        <script>
+            $(".test").load("../navfooter/nav.html");
+        </script>
+    </div>
+>>>>>>> origin/main
     <div class="main-content">
         <div class="d-flex justify-content-between">
             <h1>Tickets</h1>
@@ -27,32 +47,21 @@
                     <th scope="col">Status</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Kan niet reserveren</td>
-                    <td class="table-success">Open</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Zie pagina soms niet meer</td>
-                    <td class="table-success">Open</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Er zijn rare mails die komen</td>
-                    <td class="table-danger">Gesloten</td>
-                </tr>
+            <tbody id="tickets">
             </tbody>
         </table>
         <nav>
-            <ul class="pagination justify-content-end">
+            <!--<ul class="pagination justify-content-end">
                 <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
                 <li class="page-item active"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+<<<<<<< HEAD
             </ul>
+=======
+            </ul>-->
+>>>>>>> origin/main
         </nav>
     </div>
 </body>
