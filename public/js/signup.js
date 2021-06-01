@@ -31,7 +31,7 @@ async function register(event) {
     localStorage.setItem('token', response.token);
     
     // pagina locatie veranderen
-    window.location.href = "../zoekpagina";
+    window.location.href = "../";
 }
 
 document.getElementById("form").addEventListener("submit", event => {

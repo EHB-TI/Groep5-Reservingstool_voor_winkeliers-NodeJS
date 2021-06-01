@@ -11,10 +11,6 @@ nav bar: https://www.youtube.com/watch?v=PwWHL3RyQgk -->
     <meta name="viewport" content="widht=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/search.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/auth.js"></script>
-    <script src="../js/displaywinkel.js"></script>
-    <script src="../js/nav.js"></script>
-    
 </head>
 
 <body>
@@ -22,9 +18,7 @@ nav bar: https://www.youtube.com/watch?v=PwWHL3RyQgk -->
     <!-- Aanmaak navigatie balk -->
     <div class="test">
         <script>
-
             $(".test").load("../navfooter/nav.html");
-
         </script>
     </div>
 
@@ -33,10 +27,7 @@ nav bar: https://www.youtube.com/watch?v=PwWHL3RyQgk -->
     <div class="main-content" id="main-content">
         <h1>Zoek winkels</h1>
         <!-- Input fields maken -->
-        <input type="text"
-        name "searchBar"
-        id="searchBar"
-        placeholder="Gemeente" />
+        <input type="number" name="searchBar" id="input-post-code" placeholder="Gemeente" />
         <!--<form>
             <select id="categorie2" name="Categorie">
                 <option value="kc">Kies een categorie</option>
@@ -45,10 +36,7 @@ nav bar: https://www.youtube.com/watch?v=PwWHL3RyQgk -->
                 <option value="ca">Café</option>
             </select>
         </form> -->
-        <input  type="text"
-                name "searchBar"
-                id="searchBar1"
-                placeholder="Naam" />
+        <input type="text" name="searchBar" id="input-name" placeholder="Naam" />
 
         <!-- Winkels presenteren -->
 
@@ -78,7 +66,7 @@ nav bar: https://www.youtube.com/watch?v=PwWHL3RyQgk -->
                 Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
             <button><a href="#nowhere">Lees meer</a></button>
         </div>-->
-
+        <div id="stores"></div>
     </div>
 
     <!-- Footer -->
@@ -89,7 +77,8 @@ nav bar: https://www.youtube.com/watch?v=PwWHL3RyQgk -->
 
         </script>
     </div>
-
+    <script src="js/auth.js"></script>
+    <script src="js/displaywinkel.js"></script>
 </body>
 
 </html>

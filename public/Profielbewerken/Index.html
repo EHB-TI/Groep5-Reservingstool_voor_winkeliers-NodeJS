@@ -15,33 +15,54 @@ Email: zakaria.lamsakam@student.ehb.be
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/master.css">
   <link rel="stylesheet" href="../css/ProfielBerwerken.css">
+  <script src="../js/auth.js"></script>
   <script src="../js/ProfielBewerken.js"></script>
 
   <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
 
+  <!-- Aanmaak navigatie balk -->
+  <div class="test">
+    <script>
+      $(".test").load("../navfooter/nav.html");
+    </script>
+  </div>
   <div class="content">
     <h1>Profiel bewerken</h1>
     <div>
-      <form class="form">
+      <form class="form" id="form">
         <div class="form-group">
+
+          <!--Hier wordt een emailfveld gemaakt op de profiel bewerken pagina-->
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" id='emailField' aria-describedby="emailHelp" name='text1'
-            placeholder="Enter email">
+            placeholder="Enter email" required>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Wachtwoord</label>
-          <input type="password" class="form-control" id="Password1" placeholder="Password">
+
+          <!--Hier wordt een wachtwoordveld gemaakt voor de oude wachtwood op de profiel bewerken pagina-->
+          <label for="exampleInputPassword1">Bevestig oud wachtwoord</label>
+          <input type="password" class="form-control" id="password1" placeholder="Password" required>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Bevestig nieuw wachtwoord</label>
-          <input type="password" class="form-control" id="Password2" placeholder="Password">
+
+          <!--Hier wordt een wachtwoordveld gemaakt op de profiel bewerken pagina voor de nieuwe wachtwoord van de klant -->
+          <label for="exampleInputPassword1">Nieuw wachtwoord</label>
+          <input type="password" class="form-control" id="password2" placeholder="Password" required>
         </div>
-        <button type="submit" class="button" id="button">Submit</button>
+
+        <!--Hier wordt een knop gemaakt voor de nieuwe gegevens opteslaan op de profiel bewerken pagina-->
+        <button type="submit" class="button" id="button">Save</button>
         <div id="response"></div>
+
+        <!--Hier wordt een knop gemaakt voor het resetten van de pagina-->
+        <button type="reset" class="button" id="button1">Resetten</button>
       </form>
+
+
     </div>
   </div>
 

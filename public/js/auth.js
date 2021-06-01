@@ -10,5 +10,9 @@ async function getUser() {
             'x-access-token': encodeURIComponent(localStorage.getItem('token'))
         }
     });
-    return await rawResponse.json();;
+    const response =  await rawResponse.json();
+    if(response.auth == false){
+        localStorage.removeItem("token");
+    }
+    return response;
 }

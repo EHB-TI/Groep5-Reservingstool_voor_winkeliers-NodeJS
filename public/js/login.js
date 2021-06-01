@@ -26,7 +26,7 @@ async function login(event) {
     localStorage.setItem('token', response.token);
 
     // pagina locatie veranderen
-    window.location.href = "../zoekpagina";
+    window.location.href = "../";
     } else{
         document.getElementById("error-message").innerHTML = "Er is iets fout gelopen, probeer opnieuw."
     }}

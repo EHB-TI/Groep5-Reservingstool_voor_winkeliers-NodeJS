@@ -11,12 +11,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>New Ticket</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
+    <!-- Aanmaak navigatie balk -->
+    <div class="test">
+        <script>
+            $(".test").load("../../navfooter/nav.html");
+        </script>
+    </div>
     <div class="main-content">
         <form id="form">
-            <h1>Niew ticket</h1>
+            <h1>Nieuw ticket</h1>
             <div id="div-error" class="alert alert-danger" role="alert"></div>
             <div class="mb-3">
                 <label for="input-title" class="form-label">Titel van probleem</label>

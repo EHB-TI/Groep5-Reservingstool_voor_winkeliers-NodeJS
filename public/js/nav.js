@@ -2,7 +2,7 @@
  * Author: Craig Zoetardt
  */
 
-window.onload = async () => {
+async function loadNav() {
     let user = await getUser();
     const mainNavdiv = document.getElementById("header");
     
@@ -14,11 +14,12 @@ window.onload = async () => {
         let inloglink = document.createElement("a");
        
         navdiv.classList.add("nav_links");
-        inlogbutton.innerText = "Uitloggen";
-        inloglink.href = "http://localhost:3000/uitloggen";
+        inloglink.innerText = "Inloggen";
+        inloglink.href = "http://localhost:3000/login";
 
         mainNavdiv.appendChild(navdiv);
        
+        inlogbutton.appendChild(inloglink);
         navdiv.appendChild(inlogbutton);
         inlogbutton.appendChild(inloglink);
     }
@@ -38,10 +39,10 @@ window.onload = async () => {
         navdiv.classList.add("nav_links");
         profiellink.innerText = "Profiel";
         contactlink.innerText = "Contact";
-        contactlink.href= "http://localhost:3000/contact";
+        contactlink.href= "http://localhost:3000/tickets";
         profiellink.href = "http://localhost:3000/profiel";
         uitloggenlink.innerText = "Uitloggen";
-        uitloggenlink.href = "http://localhost:3000/uitloggen";
+        uitloggenlink.href = "http://localhost:3000/logout";
         contactlink.classList.add("nav_links");
         profiellink.classList.add("nav_links");
 
@@ -59,3 +60,5 @@ window.onload = async () => {
     };
 
 }
+
+loadNav();

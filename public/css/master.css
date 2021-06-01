@@ -34,9 +34,9 @@ p {
     font-family: Roboto-Regular;
 }
 
-img {
+/*img {
     width: 100%;
-}
+}*/
 
 .container {
     display: flex;
