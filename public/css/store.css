@@ -21,7 +21,3 @@ html, body {
     max-width: 800px;
     max-height: 400px;
 }
-
-.cursor-pointer {
-    cursor: pointer;
-}
