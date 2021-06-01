@@ -34,4 +34,5 @@ $ cd node; nodeman server.js
 * Lamsakam Zakaria: profiel pagina, profiel bewerken.
 * Zoetardt Craig: navigatie, footer, zoek pagina.
 * Faille Arnaud: lees meer pagina, tickets pagina, API server.
+* De Vogel Ryan: reservatie pagina, review pagina.
 
