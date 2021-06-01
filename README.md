@@ -11,18 +11,18 @@ Open opniew de terminal en geef de volgende commands in en ga daarna naar uw bro
 $ cd node; nodeman server.js 
 
 ### Libaries:
-  *fontawesome
+  * fontawesome
   
-  *JQuery
+  * JQuery
   
 **node modules:**
 
-  *bcryptjs
+  * bcryptjs
   
-  *express
+  * express
   
-  *jsonwebtoken
+  * jsonwebtoken
   
-  *webpack
+  * webpack
   
-  *mysql2
+  * mysql2
