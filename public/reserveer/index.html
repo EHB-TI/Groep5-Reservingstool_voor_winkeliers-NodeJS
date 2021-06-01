@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://kit.fontawesome.com/d35e422033.js" crossorigin="anonymous"></script>
+    <title>reserveer</title>
+</head>
+
+<!-- Author: De Vogel Ryan -->
+
+<body>
+    <div class="flex-column container">
+        <h1>Reserveer</h1>
+        <h3>Bij winkel....</h3>
+        <img src="../img/cat.png" alt="cat">
+        <article>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit
+                anim id est laborum.</p>
+            <p><i class="fas fa-phone-alt"></i>047705805</p>
+            <p><i class="fas fa-home"></i>Lorem Ipsum dolor sit</p>
+            <p>Openingsuren:</p>
+            <p>maandag 10:00 tot 12:00 en 12:30 tot 16:30</p>
+            <p>dinsdag 09:00 tot 12:30 en 13:00 tot 16:30</p>
+        </article>
+
+
+        <form>
+            <input type="date" id="date-picker" >
+            <input type="number" id="uren" placeholder="uur" min="0" max="23">
+            <input type="number" id="minuten" placeholder="minuten" min="0" max="60">
+        </form>
+        <button onclick="Reserveer();">Reserveer</button>
+
+    </div>
+    <script src="../js/registreer.js"></script>
+
+</body>
+
+</html>
