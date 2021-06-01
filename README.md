@@ -12,9 +12,14 @@ $ cd node; nodeman server.js
 
 ### Libaries:
   *fontawesome
+  
   *JQuery
+  
 **node modules:**
   *bcryptjs
+  
   *express
+  
   *jsonwebtoken
+  
   *webpack
