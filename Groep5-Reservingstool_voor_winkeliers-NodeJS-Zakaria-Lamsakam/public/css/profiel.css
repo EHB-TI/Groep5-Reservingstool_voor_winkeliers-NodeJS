@@ -1,0 +1,104 @@
+/*
+Theme Name:  Profiel pagina voor programming project
+Author: Zakaria Lamsakam
+Email: zakaria.lamsakam@student.ehb.be
+*/
+
+
+/* De achtergrond een stylen*/
+
+body {
+    background: #bdc3c7;
+}
+
+/* De content van de pagina centreren voor een mooi inhoud*/
+
+.profile-head {
+    height: 600px;
+    width: 600px;
+    background-color: white;
+    padding: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    box-shadow: 0 0 50px rgba(1, 1, 1, .3);
+}
+
+/* De text stylen en positioneren tegenover de pagina*/
+
+
+
+.profile-head h5 {
+    width: 100%;
+    padding: 5px 5px 0px 5px;
+    text-align: justify;
+    font-weight: bold;
+    font-size: 35px;
+    text-transform: capitalize;
+    margin-bottom: 0;
+    
+}
+
+
+.profile-head ul {
+    list-style: none;
+    padding: 0;
+}
+
+.profile-head ul li {
+    display: block;
+    color: black;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.profile-head ul li:hover span {
+    color: rgb(0, 4, 51);
+}
+
+.profile-head ul li span {
+    color: #555;
+    padding-right: 10px;
+}
+
+/* De sumbit button een blauwe kleur geven en stylen */
+
+
+.button{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    width: 50%;
+    background-color: #3498db;
+    color: white;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+}
+
+
+
+/* Mobiel */
+
+@media only screen and (max-width:700px) {
+    body {
+      background-color:#bdc3c7;
+      height: 400px;
+      width: 100%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .profile-head ul li {
+        display: block;
+        color: black;
+        padding: 5px;
+        font-size: 15px;
+    }
+
+
+}   
+
+
