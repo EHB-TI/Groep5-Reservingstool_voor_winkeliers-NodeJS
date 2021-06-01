@@ -1,20 +1,9 @@
-
-@font-face {
-    font-family: Roboto-Bold;
-    src: url('../fonts/Roboto-Bold.ttf');
-}
-
-@font-face {
-    font-family: Roboto-Regular;
-    src: url('../fonts/Roboto-Regular.ttf');
-}
-
 body {
     overflow-x: hidden;
 }
 
 h1, h2, h3 {
-    font-family: Roboto-Bold;
+    font-family: Arial;
     margin-bottom: 2%;
 }
 
@@ -31,7 +20,7 @@ h3 {
 }
 
 p {
-    font-family: Roboto-Regular;
+    font-family: Arial;
 }
 
 img {
@@ -48,4 +37,6 @@ img {
 
 button {
     padding: 2%;
+    font-family: Arial;
+    font-size: 15px;
 }
