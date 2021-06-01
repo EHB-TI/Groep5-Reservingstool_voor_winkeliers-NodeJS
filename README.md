@@ -31,7 +31,7 @@ $ cd node; nodeman server.js
 
 ### Wie heeft wat gedaan ?
 * Demir Tugçe: login pagina, registreer pagina.
-* Lamsakam Zakaria: profiel pagina, profiel bewerken.
+* Lamsakam Zakaria: profiel pagina, profiel bewerken pagina.
 * Zoetardt Craig: navigatie, footer, zoek pagina.
 * Faille Arnaud: lees meer pagina, tickets pagina, API server.
 * De Vogel Ryan: reservatie pagina, review pagina.
