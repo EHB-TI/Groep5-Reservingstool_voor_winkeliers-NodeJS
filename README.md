@@ -21,26 +21,22 @@ email: `dinge@gmail.com`
 wachtwoord: `123456`
 
 ### Libaries:
-  * fontawesome
-  
-  * JQuery
+
+    - fontawesome
+    - JQuery
   
 **node modules:**
 
-  * bcryptjs
-  
-  * express
-  
-  * jsonwebtoken
-  
-  * webpack
-  
-  * mysql2
+    - bcryptjs
+    - express
+    - jsonwebtoken
+    - webpack
+    - mysql2
 
 ### Wie heeft wat gedaan ?
-* Demir Tugçe: login pagina, registreer pagina.
-* Lamsakam Zakaria: profiel pagina, profiel bewerken pagina.
-* Zoetardt Craig: navigatie, footer, zoek pagina.
-* Faille Arnaud: lees meer pagina, tickets pagina, API server.
-* De Vogel Ryan: reservatie pagina, review pagina.
+* `Demir Tugçe`: login pagina, registreer pagina.
+* `Lamsakam Zakaria`: profiel pagina, profiel bewerken pagina.
+* `Zoetardt Craig`: navigatie, footer, zoek pagina.
+* `Faille Arnaud`: lees meer pagina, tickets pagina, API server.
+* `De Vogel Ryan`: reservatie pagina, review pagina.
 
