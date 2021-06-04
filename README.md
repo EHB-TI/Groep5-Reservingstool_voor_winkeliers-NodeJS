@@ -12,6 +12,10 @@ Open opnieuw de terminal en geef de volgende commands in en ga daarna naar uw br
 
 $ cd node; nodeman server.js 
 
+### Test Users:
+email: dinge@gmail.com
+wachtwoord: 123456
+
 ### Libaries:
   * fontawesome
   
