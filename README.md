@@ -5,17 +5,16 @@ De bedoeling van dit project is om ervoor te zorgen dat de klanten reservaties k
 ### Setup:
 Na het clonen van deze repo kan u het project openen in visual studio code en dan een terminal openen geef daarna de volgende commands:
 
-$ cd node; npm install -g nodeman; npm install 
+ $ cd node; npm install -g nodeman; npm install 
 
 ### Run:
 Open opnieuw de terminal en geef de volgende commands in en ga daarna naar uw browser naar het adres(**http://localhost:3000**):
 
-$ cd node; nodeman server.js 
+ $ cd node; nodeman server.js 
 
 ### Test Users:
-email: dinge@gmail.com
-
-wachtwoord: 123456
+email: `dinge@gmail.com`
+wachtwoord: `123456`
 
 ### Libaries:
   * fontawesome
