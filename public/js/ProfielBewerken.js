@@ -78,7 +78,7 @@ window.onload = async () => {
                         if (passwordChanged.auth == false) {
 
 
-                            // Als de oude wachtwoord fout is wordt er een popup getoont
+                            // Als de oude wachtwoord fout is wordt er een popup getoont.
 
                             alert("Oude wachtwoord is niet correct")
                         } else {
