@@ -58,7 +58,7 @@ window.onload = async () => {
             } else if (password2 == "") {
                 alert("Het wachtwoord moet bevestigt worden ")
             } else if (password2.length > 50) {
-                alert("Het wachtwoord is niet gelijk")
+                alert("Het wachtwoord mag maximum 50 letters bevatten")
             } else {
 
                 // Hier wordt de emailveld van de klant geüpdate en in de database bijgehouden.
