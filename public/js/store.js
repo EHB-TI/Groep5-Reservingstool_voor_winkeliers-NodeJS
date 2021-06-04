@@ -14,7 +14,8 @@ window.onload = () => {
     const specialClosuresUl = document.getElementById("store-special-closures");
     const reserveerA = document.getElementById("reserveer");
 
-    reserveerA.href = "../reserveer?store=" + storeId;
+    if(reserveerA)
+         reserveerA.href = "../reserveer?store=" + storeId;
 
     getData(`../api/get/stores?id=${storeId}`).then(async (result) => {
         console.log(result);

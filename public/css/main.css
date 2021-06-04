@@ -66,7 +66,7 @@ article p:last-child {
 	margin-bottom: 2%;
 }
 
-article p i {
+article p i, article div {
 	margin-right: 1%;
 }
 
@@ -75,4 +75,14 @@ form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+
+.reserveer-titel {
+	margin-top: 12%;
+}
+
+.adres {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 2%;
 }

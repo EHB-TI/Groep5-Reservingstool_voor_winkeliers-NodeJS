@@ -19,13 +19,14 @@ h3 {
     font-size: 1.5em;
 }
 
-p {
+p, span, div {
     font-family: Arial;
+    font-size: 0.9em;
 }
 
-/*img {
+.container img {
     width: 100%;
-}*/
+}
 
 .container {
     display: flex;
