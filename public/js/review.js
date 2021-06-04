@@ -2,15 +2,16 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const storeId = urlParams.get('store');
 
+window.onload = function(){
 getData(`http://localhost:3000/api/get/stores?id=${storeId}`).then(data=>{
   if(Object.keys(data).length > 0){
-    alert("xd");
+	console.log("Je zit op de goeie pagina");
   }
   else {
-    alert("wow");
+    console.log("Je zit op de foute pagina");
   }
 });
-
+}
 
 let star = document.querySelectorAll('input[type="radio"]');
 let starScore = 0;
