@@ -14,8 +14,9 @@ window.onload = () => {
     const specialClosuresUl = document.getElementById("store-special-closures");
     const reserveerA = document.getElementById("reserveer");
 
-    if(reserveerA)
-         reserveerA.href = "../reserveer?store=" + storeId;
+    if (reserveerA) {
+        reserveerA.href = "../reserveer?store=" + storeId;
+    }
 
     getData(`../api/get/stores?id=${storeId}`).then(async (result) => {
         console.log(result);
@@ -28,20 +29,21 @@ window.onload = () => {
         postBusSpan.innerText = result[0].postbus;
 
         const openingshours = await getData(`../api/get/opening_hours?store_id=${storeId}`);
-        for(openingshour of openingshours){
+        for (openingshour of openingshours) {
             let li = document.createElement("li");
 
-            li.innerText = DAYS_OF_WEEK[openingshour.week_day - 1] + " " + openingshour.begin_hour + " tot " + openingshour.end_hour;
-            
+            console.log(openingshour.week_day);
+            li.innerText = DAYS_OF_WEEK[openingshour.week_day] + " " + openingshour.begin_hour + " tot " + openingshour.end_hour;
+
             openingsHoursUl.appendChild(li);
         }
 
         const specialClosures = await getData(`../api/get/special_closures?store_id=${storeId}`);
-        for(specialClosure of specialClosures){
+        for (specialClosure of specialClosures) {
             let li = document.createElement("li");
 
             li.innerText = specialClosure.date + ": " + specialClosure.reason;
-            
+
             specialClosuresUl.appendChild(li);
         }
     });
