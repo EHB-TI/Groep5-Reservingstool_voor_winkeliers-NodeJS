@@ -24,7 +24,7 @@ window.onload = async () => {
     getUser().then(value => {
         console.log(value);
 
-        // Hier wordt de gegevens van de klant aangevuld op de pagina door de het gelijk te stellen met de elementen van de pagina
+        // Hier wordt de gegevens van de klant aangevuld op de pagina door de het gelijk te stellen met de elementen van de pagina.
 
         document.getElementById("emailField").value = value.email;
 
@@ -58,7 +58,7 @@ window.onload = async () => {
             } else if (password2 == "") {
                 alert("Het wachtwoord moet bevestigt worden ")
             } else if (password2.length > 50) {
-                alert("Het wachtwoord is niet gelijk")
+                alert("Het wachtwoord mag maximum 50 letters bevatten")
             } else {
 
                 // Hier wordt de emailveld van de klant geüpdate en in de database bijgehouden.
@@ -78,7 +78,7 @@ window.onload = async () => {
                         if (passwordChanged.auth == false) {
 
 
-                            // Als de oude wachtwoord fout is wordt er een popup getoont
+                            // Als de oude wachtwoord fout is wordt er een popup getoont.
 
                             alert("Oude wachtwoord is niet correct")
                         } else {
