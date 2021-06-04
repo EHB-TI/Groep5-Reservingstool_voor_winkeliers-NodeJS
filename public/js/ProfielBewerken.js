@@ -24,7 +24,7 @@ window.onload = async () => {
     getUser().then(value => {
         console.log(value);
 
-        // Hier wordt de gegevens van de klant aangevuld op de pagina door de het gelijk te stellen met de elementen van de pagina
+        // Hier wordt de gegevens van de klant aangevuld op de pagina door de het gelijk te stellen met de elementen van de pagina.
 
         document.getElementById("emailField").value = value.email;
 
